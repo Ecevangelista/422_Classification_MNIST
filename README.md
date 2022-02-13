@@ -15,6 +15,7 @@ For PCA and the KMeans model, the explanatory variable data had to be scaled usi
 Prior to building the models, the train dataset for the Random Forest and PCA with Random Forest models were split into train and test groups with an 80%/20% split to be able to validate the models. The K Means model was split using a 85%/15% split due to accessing the data from google tensorflow.  
 
 ### Model Evaluation  
+
 **Random Forest**  
 
 The Random Forest model was run with default hyperparameters (n_estimators = 100) and produced an overall weighted average F1 score of 0.97. The model performed best on predicting “0”s, “1”s, and “6”s, with F1 scores of 0.98 and worst on predicting “8” and “9” with F1 scores of 0.95.   
@@ -36,6 +37,7 @@ Runtime: 24 seconds
 | 7                                 | 0.97     | 97%       | 96%    |          |       
 | 8                                 | 0.95     | 96%       | 93%    |          |
 | 9                                 | 0.95     | 96%       | 95%    |          |
+
 
 **PCA with Random Forest**
 
@@ -62,6 +64,7 @@ Runtime for PCA and Random Forest: 1 minute, 16 seconds
 | 7                                 | 0.93     | 93%       | 94%    |          |       
 | 8                                 | 0.89     | 93%       | 86%    |          |
 | 9                                 | 0.90     | 92%       | 89%    |          |
+
 
 **K-Means Model**  
 
@@ -130,10 +133,22 @@ Runtime on n_clusters = 256: 13 seconds
 | 8                                 | 0.87     | 91%       | 84%    |          |
 | 9                                 | 0.83     | 79%       | 87%    |          |
 
+
 ### Conclusion
 
 Since the K-Means dataset may have differed from the other 2 datasets, true comparison of the F1 scores is not available. The Random Forest Classifer achieved the highest performance with an F1 score of 0.97 and the range across all digits was consistent, achieving 0.95 or higher. All models behaved similarly in classification prediction, with the best performance seen with classifying "0" and "1", and the worst performance with classifying "8" and "9."  
 
 The K-Means clustering model achieved the lowest runtime at 13 seconds. It also produced the widest range of F1 scores, ranging from 0.96 - 0.83, indicating that the model was not as successful at classifying some of the more difficult digits like "8" and "9." 
+
+
+
+
+### References  
+* sci-kit learn discussion on clustering performance evaluation  
+https://scikit-learn.org/stable/modules/clustering.html#k-means
+
+* Chanseok Kang's colab notebook for K-Means code on image classification
+https://colab.research.google.com/github/goodboychan/goodboychan.github.io/blob/main/_notebooks/2020-10-26-01-K-Means-Clustering-for-Imagery-Analysis.ipynb
+
 
 
